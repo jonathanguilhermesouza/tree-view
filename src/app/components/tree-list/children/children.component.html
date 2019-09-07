@@ -1,0 +1,31 @@
+  <!--<ul *ngFor="let children of data">
+    <li style="color:blue">{{children.name}}</li>
+    <children [data]="children.children"></children>
+  </ul>-->
+<div id="myUL">
+  <div class="list-group nested" *ngFor="let children of data; let i = index" id="{{children.id}}">
+      <a class="list-group-item list-group-item-action">
+        <div [ngStyle]="{'margin-left.px': level * 20}">
+          <input type="checkbox" (click)="toggle($event)"> 
+          <span class="caret">{{children.name}}</span>
+            <!--{{indexDad + 1}}-{{i + 1}}-{{level}}-->
+        </div>
+         
+      </a>
+      <children [data]="children.children" [level]="level" [indexDad]="indexDad + 1" [indexChild]="i + 1"></children>
+  </div>
+</div>
+
+
+
+<script>
+  var toggler = document.getElementsByClassName("caret");
+  var i;
+  
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener("click", function() {
+      this.parentElement.querySelector(".nested").classList.toggle("active");
+      this.classList.toggle("caret-down");
+    });
+  }
+  </script>

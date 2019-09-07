@@ -1,0 +1,58 @@
+<div>
+  <div class="header header-style content-margin">
+    <h4 class="title text-center text-light">Detalhes do repositório</h4>
+  </div>
+
+  <div class="content">
+    <div class="form-style">
+        <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                  <img src="{{repository.owner.avatar_url}}" class="align-middle avatar-icon"/>
+              </div>
+            </div>
+            <div class="col-8">
+                <div class="form-group">
+                  <label>Owner do repositório</label>
+                  <input [value]="repository.owner.login" name="owner" class="form-control" disabled>
+                </div>
+              </div>
+          </div>
+
+
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label>Nome do repositório</label>
+            <input [value]="repository.name" name="name" class="form-control" disabled>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="form-group">
+            <label>Nome completo do repositório</label>
+            <input [value]="repository.full_name" name="fullName" class="form-control" disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-12">
+              <div class="form-group">
+                <label>Descrição repositório</label>
+                <textarea name="description" class="form-control" [value]="repository.description" rows="5" disabled>
+                </textarea>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <a href="repository.html_url">{{repository.html_url}}</a>
+                </div>
+              </div>
+          </div>
+        </div>
+
+  </div>
+</div>

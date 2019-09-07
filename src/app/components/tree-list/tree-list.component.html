@@ -1,0 +1,42 @@
+<p>
+  tree list
+</p>
+
+  <!--<ul>
+    <li>Pai 1</li>
+    <li>
+      <ul>
+        <li>Filho 1</li>
+        <li>Filho 2</li>
+      </ul>
+    </li>
+    <li>Pai 2</li>
+    <li>Pai 3</li>
+  </ul>-->
+
+  <!--<ul *ngFor="let tree of TreeList">
+    <li style="color:blue">{{tree.name}}</li>
+    
+    <ul *ngFor="let filho of tree.children">
+      <li>{{filho.name}}</li>
+
+      <ul *ngFor="let neto of filho.children">
+          <li>{{neto.name}}</li>
+      </ul>
+    </ul>
+  </ul>-->
+
+
+  <div class="list-group" *ngFor="let tree of TreeList; let i = index" style="margin-left: 5px" #link id="{{tree.id}}">
+    <a class="list-group-item list-group-item-action">
+        <input type="checkbox" (click)="toggle($event)"> 
+        {{tree.name}}
+        <!--{{i + 1}}-{{i + 1}}-{{Level}}-->
+    </a>
+    <children [data]="tree.children" [level]="Level" [indexDad]="i + 1" [indexChild]="i + 1"></children>
+  </div>
+
+
+<!--
+  https://stackoverflow.com/questions/32693061/how-can-i-select-an-element-in-a-component-template
+-->
