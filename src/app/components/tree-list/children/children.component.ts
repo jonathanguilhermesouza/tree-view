@@ -22,13 +22,21 @@ export class ChildrenComponent implements OnInit {
 
   ngOnInit() {
     this.level = this.level + 1;
-    console.log(this.level);
+    $('children').toggle();
+
+  }
+
+  ngAfterViewInit() {
+    //console.log(this.ancora.nativeElement);
+  }
+
+  toggle2(event) {
+    let id = event.target.parentElement.parentElement.parentElement.id;
+    $('#icon'+id+'').toggleClass('fa-chevron-down');
+    $('#'+id+' children').toggle();
   }
 
   toggle(event) {
-    console.log(event.target);
-    console.log(event.target.checked);
-    console.log(event.target.parentElement.parentElement.parentElement.id);
     let id = event.target.parentElement.parentElement.parentElement.id;
 
     if(event.target.checked)

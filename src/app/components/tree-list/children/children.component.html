@@ -1,15 +1,21 @@
-  <!--<ul *ngFor="let children of data">
-    <li style="color:blue">{{children.name}}</li>
-    <children [data]="children.children"></children>
-  </ul>-->
-  <div class="list-group" *ngFor="let children of data; let i = index" id="{{children.id}}">
-      <a class="list-group-item list-group-item-action">
-        <div [ngStyle]="{'margin-left.px': level * 20}">
-          <input type="checkbox" (click)="toggle($event)"> 
-          {{children.name}}
-            <!--{{indexDad + 1}}-{{i + 1}}-{{level}}-->
-        </div>
-         
+  <!--<div class="list-group d-flex bd-highlight" *ngFor="let children of data; let i = index" id="{{children.id}}">
+      <a class="list-group-item list-group-item-action ">
+        <input type="checkbox" (click)="toggle($event)" [ngStyle]="{'margin-left.px': level * 20}"> 
+        {{children.name}}
+        <i *ngIf="children.children && children.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="toggle2($event)" id="icon{{children.id}}"></i> &nbsp;&nbsp;
       </a>
+      <children [data]="children.children" [level]="level" [indexDad]="indexDad + 1" [indexChild]="i + 1"></children>
+  </div>-->
+
+  <div *ngFor="let children of data; let i = index"  id="{{children.id}}">
+    <div class="d-flex bd-highlight line">
+        <div class="mr-auto p-2 bd-highlight">
+                <input type="checkbox" (click)="toggle($event)" [ngStyle]="{'margin-left.px': level * 20}"> 
+                {{children.name}}
+        </div>
+        <div class="p-2 bd-highlight">
+            <i *ngIf="children.children && children.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="toggle2($event)" id="icon{{children.id}}"></i> &nbsp;&nbsp;
+        </div>
+      </div>
       <children [data]="children.children" [level]="level" [indexDad]="indexDad + 1" [indexChild]="i + 1"></children>
   </div>
