@@ -1,0 +1,12 @@
+  <div *ngFor="let child of data; let i = index" id="{{child.id}}">
+    <div class="d-flex bd-highlight line" (click)="setCheckbok($event, 'divClick')">
+        <div class="mr-auto p-2 bd-highlight">
+           <input type="checkbox" (click)="setCheckbok($event, 'inputClick')" [ngStyle]="{'margin-left.px': level * 20}"> 
+            {{child.name}}
+        </div>
+        <div class="p-2 bd-highlight">
+            <i *ngIf="child.children && child.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="openTree($event)" id="icon{{child.id}}"></i> &nbsp;&nbsp;
+        </div>
+      </div>
+      <child [data]="child.children" [level]="level"></child>
+  </div>

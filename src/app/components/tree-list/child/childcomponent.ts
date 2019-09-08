@@ -4,11 +4,11 @@ import { TreeList } from '../shared/tree-list.model';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'children',
-  templateUrl: './children.component.html',
-  styleUrls: ['./children.component.css']
+  selector: 'child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css']
 })
-export class ChildrenComponent implements OnInit {
+export class ChildComponent implements OnInit {
 
   @Input() data: TreeList[];
   @Input() level: number;
@@ -17,13 +17,13 @@ export class ChildrenComponent implements OnInit {
 
   ngOnInit() {
     this.level = this.level + 1;
-    $('children').toggle();
+    $('child').toggle();
   }
 
   openTree(event : any) {
     let id = event.target.parentElement.parentElement.parentElement.id;
     $('#icon'+id+'').toggleClass('fa-chevron-down');
-    $('#'+id+' children').toggle();
+    $('#'+id+' child').toggle();
   }
 
   setCheckbok(event : any, type: string) {

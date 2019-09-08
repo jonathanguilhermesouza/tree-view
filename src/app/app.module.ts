@@ -17,7 +17,7 @@ import { RepositoryIndividualComponent } from './components/repository/repositor
 import { RepositoryListComponent } from './components/repository/repository-list/repository-list.component';
 import { RepositoryDetailComponent } from './components/repository/repository-detail/repository-detail.component';
 import { TreeListComponent } from './components/tree-list/tree-list.component';
-import { ChildrenComponent } from './components/tree-list/children/children.component';
+import { ChildComponent } from './components/tree-list/child/childcomponent';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { ChildrenComponent } from './components/tree-list/children/children.comp
     RepositoryListComponent,
     RepositoryDetailComponent,
     TreeListComponent,
-    ChildrenComponent
+    ChildComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
