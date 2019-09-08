@@ -1,9 +1,6 @@
 //packages
 import { Component, OnInit, Input } from '@angular/core';
 import { TreeList } from '../shared/tree-list.model';
-
-//utils
-import { Guid } from 'src/app/components/tree-list/shared/guid.model';
 import * as $ from 'jquery';
 
 @Component({
@@ -15,34 +12,37 @@ export class ChildrenComponent implements OnInit {
 
   @Input() data: TreeList[];
   @Input() level: number;
-  @Input() indexDad: number;
-  @Input() indexChild: number;
 
   constructor() { }
 
   ngOnInit() {
     this.level = this.level + 1;
     $('children').toggle();
-
   }
 
-  ngAfterViewInit() {
-    //console.log(this.ancora.nativeElement);
-  }
-
-  toggle2(event) {
+  openTree(event : any) {
     let id = event.target.parentElement.parentElement.parentElement.id;
     $('#icon'+id+'').toggleClass('fa-chevron-down');
     $('#'+id+' children').toggle();
   }
 
-  toggle(event) {
-    let id = event.target.parentElement.parentElement.parentElement.id;
+  setCheckbok(event : any, type: string) {
 
-    if(event.target.checked)
+    let id = null;
+    let isChecked = false;
+
+    if(type === 'divClick'){
+      id = event.target.parentElement.id;
+      isChecked = !$('#'+id+' input').first()[0].checked;
+    }
+    else{
+      id = event.target.parentElement.parentElement.parentElement.id;
+      isChecked = event.target.checked;
+    }
+    
+    if(isChecked)
       $('#'+id+' input').prop("checked", true );
     else
       $('#'+id+' input').prop("checked", false ); 
-    
- }
+  }
 }

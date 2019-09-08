@@ -15,42 +15,13 @@ import { Guid } from 'src/app/components/tree-list/shared/guid.model';
 })
 export class TreeListComponent implements OnInit {
 
-  TreeList:  any; 
-  Level: number;
-  //@ViewChild('link') ancora; 
+  treeList:  any; 
+  level: number;
 
   constructor(private treeListService: TreeListService) { }
 
-  ngAfterViewInit() {
-    //console.log(this.ancora.nativeElement);
-    //$('children').toggle();
-    /*$('#tree-view').find('div').has("children").each(function () {
-      console.log($(this));
-      var branch = $(this); //li with children ul
-      console.log($(branch + ' children'));
-      $('children').toggle();
-    });*/
-  }
-
-  toggle(event) {
-    let id = event.target.parentElement.parentElement.parentElement.id;
-
-    if(event.target.checked){
-      $('#'+id+' input').prop("checked", true );
-    }
-    else{
-      $('#'+id+' input').prop("checked", false );
-    }
- }
-
- toggle2(event) {
-  let id = event.target.parentElement.parentElement.parentElement.id;
-  $('#icon'+id+'').toggleClass('fa-chevron-down');
-  $('#'+id+' children').toggle();
-}
-
   ngOnInit() {
-    this.Level = 1;
+    this.level = 1;
     
     let list = [
       {
@@ -117,6 +88,6 @@ export class TreeListComponent implements OnInit {
       }
     ];
 
-    this.TreeList = list;
+    this.treeList = list;
   }
 }

@@ -1,21 +1,12 @@
-  <!--<div class="list-group d-flex bd-highlight" *ngFor="let children of data; let i = index" id="{{children.id}}">
-      <a class="list-group-item list-group-item-action ">
-        <input type="checkbox" (click)="toggle($event)" [ngStyle]="{'margin-left.px': level * 20}"> 
-        {{children.name}}
-        <i *ngIf="children.children && children.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="toggle2($event)" id="icon{{children.id}}"></i> &nbsp;&nbsp;
-      </a>
-      <children [data]="children.children" [level]="level" [indexDad]="indexDad + 1" [indexChild]="i + 1"></children>
-  </div>-->
-
-  <div *ngFor="let children of data; let i = index"  id="{{children.id}}">
-    <div class="d-flex bd-highlight line">
+  <div *ngFor="let children of data; let i = index" id="{{children.id}}">
+    <div class="d-flex bd-highlight line" (click)="setCheckbok($event, 'divClick')">
         <div class="mr-auto p-2 bd-highlight">
-                <input type="checkbox" (click)="toggle($event)" [ngStyle]="{'margin-left.px': level * 20}"> 
-                {{children.name}}
+           <input type="checkbox" (click)="setCheckbok($event, 'inputClick')" [ngStyle]="{'margin-left.px': level * 20}"> 
+            {{children.name}}
         </div>
         <div class="p-2 bd-highlight">
-            <i *ngIf="children.children && children.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="toggle2($event)" id="icon{{children.id}}"></i> &nbsp;&nbsp;
+            <i *ngIf="children.children && children.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="openTree($event)" id="icon{{children.id}}"></i> &nbsp;&nbsp;
         </div>
       </div>
-      <children [data]="children.children" [level]="level" [indexDad]="indexDad + 1" [indexChild]="i + 1"></children>
+      <children [data]="children.children" [level]="level"></children>
   </div>
