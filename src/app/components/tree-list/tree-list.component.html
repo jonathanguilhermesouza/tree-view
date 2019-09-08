@@ -26,14 +26,16 @@
     </ul>
   </ul>-->
 
-
-  <div class="list-group" *ngFor="let tree of TreeList; let i = index" style="margin-left: 5px" #link id="{{tree.id}}">
-    <a class="list-group-item list-group-item-action">
+  <div id="tree-view">
+    <div class="list-group" *ngFor="let tree of TreeList; let i = index" style="margin-left: 5px" #link id="{{tree.id}}">
+    
+      <a class="list-group-item list-group-item-action">
+        <i class="fa fa-chevron-up" aria-hidden="true" (click)="toggle2($event)" id="icon{{tree.id}}"></i> &nbsp;&nbsp;
         <input type="checkbox" (click)="toggle($event)"> 
-        {{tree.name}}
-        <!--{{i + 1}}-{{i + 1}}-{{Level}}-->
-    </a>
-    <children [data]="tree.children" [level]="Level" [indexDad]="i + 1" [indexChild]="i + 1"></children>
+          {{tree.name}}
+      </a>
+      <children [data]="tree.children" [level]="Level" [indexDad]="i + 1" [indexChild]="i + 1"></children>
+    </div>
   </div>
 
 

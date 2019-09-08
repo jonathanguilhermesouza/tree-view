@@ -22,20 +22,40 @@ export class TreeListComponent implements OnInit {
   constructor(private treeListService: TreeListService) { }
 
   ngAfterViewInit() {
-    console.log(this.ancora.nativeElement);
+    //console.log(this.ancora.nativeElement);
+    $('children').toggle();
+    $('#tree-view').find('div').has("children").each(function () {
+      console.log($(this));
+      var branch = $(this); //li with children ul
+      console.log($(branch + ' children'));
+      $('children').toggle();
+    });
   }
 
   toggle(event) {
-    console.log(event.target);
-    console.log(event.target.checked);
-    console.log(event.target.parentElement.parentElement.id); 
+    //console.log(event.target);
+    //console.log(event.target.checked);
+    //console.log(event.target.parentElement.parentElement.id); 
     let id = event.target.parentElement.parentElement.id;
 
-    if(event.target.checked)
+    if(event.target.checked){
+      $('#'+id+' children').toggle( "slow" );
       $('#'+id+' input').prop("checked", true );
-    else
+    }
+    else{
+      $('#'+id+' children').toggle( "slow" );
       $('#'+id+' input').prop("checked", false );
+    }
  }
+
+ toggle2(event) {
+  //console.log(event.target.localName);
+  //console.log(event.target.checked);
+  //console.log(event.target.parentElement.parentElement.parentElement.id); 
+  let id = event.target.parentElement.parentElement.id;
+  $('#icon'+id+'').toggleClass('fa-chevron-down');
+  $('#'+id+' children').toggle( "slow" );
+}
 
   ngOnInit() {
     //var data = this.treeListService.getAll();
