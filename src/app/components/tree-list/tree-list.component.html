@@ -1,4 +1,5 @@
-  <div id="tree-view">
+  <!--
+    <div id="tree-view">
     <div class="list-group" *ngFor="let tree of TreeList; let i = index" style="margin-left: 5px" #link id="{{tree.id}}">
       <a class="list-group-item list-group-item-action">
         <i class="fa fa-chevron-up" aria-hidden="true" (click)="toggle2($event)" id="icon{{tree.id}}"></i> &nbsp;&nbsp;
@@ -8,7 +9,20 @@
       <children [data]="tree.children" [level]="Level" [indexDad]="i + 1" [indexChild]="i + 1"></children>
     </div>
   </div>
+-->
 
+  <div *ngFor="let tree of TreeList; let i = index" id="{{tree.id}}">
+      <div class="d-flex bd-highlight line">
+          <div class="mr-auto p-2 bd-highlight">
+                  <input type="checkbox" (click)="toggle($event)"> 
+                  {{tree.name}}
+          </div>
+          <div class="p-2 bd-highlight">
+              <i *ngIf="tree.children && tree.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="toggle2($event)" id="icon{{tree.id}}"></i> &nbsp;&nbsp;
+          </div>
+        </div>
+        <children [data]="tree.children" [level]="Level" [indexDad]="i + 1" [indexChild]="i + 1"></children>
+    </div>
 
 <!--
   https://stackoverflow.com/questions/32693061/how-can-i-select-an-element-in-a-component-template

@@ -17,7 +17,7 @@ export class TreeListComponent implements OnInit {
 
   TreeList:  any; 
   Level: number;
-  @ViewChild('link') ancora; 
+  //@ViewChild('link') ancora; 
 
   constructor(private treeListService: TreeListService) { }
 
@@ -33,22 +33,20 @@ export class TreeListComponent implements OnInit {
   }
 
   toggle(event) {
-    let id = event.target.parentElement.parentElement.id;
+    let id = event.target.parentElement.parentElement.parentElement.id;
 
     if(event.target.checked){
-      $('#'+id+' children').toggle( "slow" );
       $('#'+id+' input').prop("checked", true );
     }
     else{
-      $('#'+id+' children').toggle( "slow" );
       $('#'+id+' input').prop("checked", false );
     }
  }
 
  toggle2(event) {
-  let id = event.target.parentElement.parentElement.id;
+  let id = event.target.parentElement.parentElement.parentElement.id;
   $('#icon'+id+'').toggleClass('fa-chevron-down');
-  $('#'+id+' children').toggle( "fast" );
+  $('#'+id+' children').toggle();
 }
 
   ngOnInit() {
