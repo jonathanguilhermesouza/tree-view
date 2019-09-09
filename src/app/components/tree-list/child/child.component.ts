@@ -10,7 +10,7 @@ import * as $ from 'jquery';
 })
 export class ChildComponent implements OnInit {
 
-  @Input() data: TreeList[];
+  @Input() data: any;
 
   constructor() { }
 

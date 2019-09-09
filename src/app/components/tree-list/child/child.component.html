@@ -1,4 +1,4 @@
- <div *ngFor="let child of data; let i = index" id="{{child.id}}">
+ <div *ngFor="let child of data" id="{{child.id}}">
     <div class="d-flex bd-highlight line" (click)="setCheckbok($event, 'divClick')">
         <div class="mr-auto p-2 bd-highlight">
             <div class="custom-control custom-checkbox" [ngStyle]="{'margin-left.px': child.level * 20}">

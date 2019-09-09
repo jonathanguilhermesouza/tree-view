@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {GlobalConfig} from 'src/app/config';
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,8 +10,7 @@ export class NavMenuComponent {
   isExpanded = false;
 
   constructor(
-    private router: Router,
-    private config: GlobalConfig
+    private router: Router
     ) { }
 
   ngOnInit() {

@@ -1,11 +1,12 @@
 //packages
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 //services
 import { TreeListService } from 'src/app/components/tree-list/shared/tree-list.service';
 
 //utils
 import { TreeList } from './shared/tree-list.model';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'tree-list',
@@ -14,16 +15,18 @@ import { TreeList } from './shared/tree-list.model';
 })
 export class TreeListComponent implements OnInit {
 
-  treeList:  TreeList[]; 
+  treeList:  any; 
+  @ViewChild(ChildComponent) listViewChild: ChildComponent;
 
-  constructor(private treeListService: TreeListService) { }
+  constructor(private treeListService: TreeListService) {}
 
-  ngOnInit() {
+  ngAfterViewInit(){
     this.treeListService.getAll()
     .then((response) => 
       {
-        this.treeList = response as TreeList[];
+        this.listViewChild.data = response;
       });
-
   }
+
+  ngOnInit() { }
 }
