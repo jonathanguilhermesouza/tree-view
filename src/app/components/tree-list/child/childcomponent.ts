@@ -22,8 +22,10 @@ export class ChildComponent implements OnInit {
 
   openTree(event : any) {
     let id = event.target.parentElement.parentElement.parentElement.id;
-    $('#icon'+id+'').toggleClass('fa-chevron-down');
-    $('#'+id+' child').toggle();
+    if(id){
+      $('#icon'+id+'').toggleClass('fa-chevron-down');
+      $('#'+id+' child').toggle();
+    }
   }
 
   setCheckbok(event : any, type: string) {
@@ -31,18 +33,29 @@ export class ChildComponent implements OnInit {
     let id = null;
     let isChecked = false;
 
-    if(type === 'divClick'){
+    if(type === 'divClick' && event.target.parentElement.id != ''){
       id = event.target.parentElement.id;
       isChecked = !$('#'+id+' input').first()[0].checked;
     }
-    else{
-      id = event.target.parentElement.parentElement.parentElement.id;
+    else if(type === 'divClick' && !event.target.checked)
+      return;
+    else {
+      id = event.target.parentElement.parentElement.parentElement.parentElement.id;
       isChecked = event.target.checked;
     }
     
-    if(isChecked)
-      $('#'+id+' input').prop("checked", true );
-    else
-      $('#'+id+' input').prop("checked", false ); 
+    if(id){
+      if(isChecked)
+        $('#'+id+' input').prop("checked", true );
+      else
+        $('#'+id+' input').prop("checked", false ); 
+      }
+  }
+
+  getChild(child: any){
+    if(child)
+      return Object.keys(child).map(key => (child[key]));
+      else
+      return [];
   }
 }

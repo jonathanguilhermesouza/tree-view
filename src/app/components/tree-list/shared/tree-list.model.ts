@@ -1,6 +1,6 @@
 export class TreeList {
-  id: number;
-  level: string;
+  id: string;
+  level: number;
   name: string;
-  children: TreeList[];
+  children: any;
 }
