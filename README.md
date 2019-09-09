@@ -35,7 +35,7 @@ Ao rodar o projeto é possível navegar em até 2 telas, home e a tela que exibe
 >
 2. Tela 2
 >
-![Tela 2](https://i.ibb.co/FnTStyB/image.png)
+![Tela 2](https://i.ibb.co/r7mVRmB/image.png)
 >
 2. Tela 3
 >
