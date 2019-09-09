@@ -11,15 +11,14 @@ import * as $ from 'jquery';
 export class ChildComponent implements OnInit {
 
   @Input() data: TreeList[];
-  @Input() level: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.level = this.level + 1;
     $('child').toggle();
   }
 
+  //expande ou recolhe a árvore
   openTree(event : any) {
     let id = event.target.parentElement.parentElement.parentElement.id;
     if(id){
@@ -28,6 +27,7 @@ export class ChildComponent implements OnInit {
     }
   }
 
+  //Marca ou desmarca o checkbox principal e os descendentes
   setCheckbok(event : any, type: string) {
 
     let id = null;
@@ -50,12 +50,5 @@ export class ChildComponent implements OnInit {
       else
         $('#'+id+' input').prop("checked", false ); 
       }
-  }
-
-  getChild(child: any){
-    if(child)
-      return Object.keys(child).map(key => (child[key]));
-      else
-      return [];
   }
 }

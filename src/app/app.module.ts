@@ -12,22 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
-import { RepositoryAllComponent } from './components/repository/repository-all/repository-all.component';
-import { RepositoryIndividualComponent } from './components/repository/repository-individual/repository-individual.component';
-import { RepositoryListComponent } from './components/repository/repository-list/repository-list.component';
-import { RepositoryDetailComponent } from './components/repository/repository-detail/repository-detail.component';
 import { TreeListComponent } from './components/tree-list/tree-list.component';
-import { ChildComponent } from './components/tree-list/child/childcomponent';
+import { ChildComponent } from './components/tree-list/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    RepositoryAllComponent,
-    RepositoryIndividualComponent,
-    RepositoryListComponent,
-    RepositoryDetailComponent,
     TreeListComponent,
     ChildComponent
   ],
@@ -39,9 +31,6 @@ import { ChildComponent } from './components/tree-list/child/childcomponent';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
-      { path: 'repository-all', component: RepositoryAllComponent },
-      { path: 'repository-individual', component: RepositoryIndividualComponent},
-      { path: 'repository-detail', component: RepositoryDetailComponent},
       { path: 'tree-list', component: TreeListComponent}
     ]),
     ToastrModule.forRoot()
