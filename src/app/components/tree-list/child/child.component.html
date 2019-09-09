@@ -10,5 +10,5 @@
             <i *ngIf="child.children && child.children.length > 0" class="fa fa-chevron-up align-items-sm-end" aria-hidden="true" (click)="openTree($event)" id="icon{{child.id}}"></i> &nbsp;&nbsp;
         </div>
       </div>
-      <child [data]="child.children" [level]="level"></child>
+      <child [data]="child.children"></child>
   </div>
